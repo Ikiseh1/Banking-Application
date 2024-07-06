@@ -1,15 +1,14 @@
-name: Build and Deploy My Bank Application
+name: Build & Deploy My Bank Application
 
 on:
   push:
     branches:
       - main
 
-
 jobs:
   build-deploy:
-    name: Build and deploy My Bank Application
-    runs-on: ubuntu-latest    #    explain this more the runs-on
+    name: Build and Deploy My Bank Application
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -23,16 +22,7 @@ jobs:
       - name: Unit Tests
         run: mvn -B test --file pom.xml
 
-
       - name: Build the Application
-        run:
+        run: |
           mvn clean
           mvn -B package --file pom.xml
-
-
-
-
-
-
-
-
