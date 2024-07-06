@@ -1,4 +1,4 @@
-name: Build & Deploy My Bank Application
+name: Build and Deploy My Bank Application
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-deploy:
-    name: build and deploy My Bank Application
+    name: Build and deploy My Bank Application
     runs-on: ubuntu-latest    #    explain this more the runs-on
     steps:
       - name: Checkout Code
