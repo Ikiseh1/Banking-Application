@@ -1,0 +1,38 @@
+name: Build & Deploy My Bank Application
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  build-deploy:
+    name: build and deploy My Bank Application
+    runs-on: ubuntu-latest    #    explain this more the runs-on
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup JDK 17
+        uses: actions/etup-java@v3
+        with:
+          destribution: 'corretto'
+          java-version: 17
+
+      - name: Unit Tests
+        run: mvn -B test --file pom.xml
+
+
+      - name: Build the Apllication
+        run:
+          mvn clean
+          mvn -B package --file pom.xml
+
+
+
+
+
+
+
+
