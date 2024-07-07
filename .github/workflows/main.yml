@@ -1,33 +1,83 @@
+#name: Build and Deploy My Bank Application
+#
+#on:
+#  push:
+#    branches:
+#      - main
+#
+#
+#jobs:
+#  build-deploy:
+#    name: Build and deploy My Bank Application
+#    runs-on: ubuntu-latest    #    explain this more the runs-on
+#    steps:
+#      - name: Checkout Code
+#        uses: actions/checkout@v3
+#
+#      - name: Setup JDK 17
+#        uses: actions/setup-java@v3
+#        with:
+#          distribution: 'corretto'
+#          java-version: 17
+#
+#      - name: Verify Java Version
+#        run: java -version
+#
+##      - name: Unit Tests
+##        run: mvn -B test --file pom.xml
+#
+#
+#      - name: Build the Application
+#        run:
+#          mvn clean
+#          mvn -B package --file pom.xml
+
 name: Build and Deploy My Bank Application
 
 on:
   push:
     branches:
       - main
-
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build-deploy:
+  build:
     name: Build and deploy My Bank Application
-    runs-on: ubuntu-latest    #    explain this more the runs-on
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup JDK 17
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'corretto'
-          java-version: 17
+          java-version: '17'
 
-      - name: Verify Java Version
-        run: java -version
+      - name: Build and Test with Maven
+        run: |
+          mvn clean verify
+        env:
+          SPRING_PROFILES_ACTIVE: test
+          DATABASE_URL: jdbc:h2:mem:testdb
+          DATABASE_DRIVER_CLASS_NAME: org.h2.Driver
+          DATABASE_USERNAME: sa
+          DATABASE_PASSWORD: password
 
-#      - name: Unit Tests
-#        run: mvn -B test --file pom.xml
+      - name: Archive Artifacts
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-artifact
+          path: target/*.jar
 
+      - name: Save Test Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: target/surefire-reports
 
-      - name: Build the Application
-        run:
-          mvn clean
-          mvn -B package --file pom.xml
