@@ -20,11 +20,8 @@ jobs:
           distribution: 'corretto'
           java-version: 17
 
-#      - name: Verify Java Version
-#        run: java -version
-
-#      - name: Unit Tests
-#        run: mvn -B test --file pom.xml
+      - name: Unit Tests
+        run: mvn -B test --file pom.xml
 
       - name: Build the Application
         run:
