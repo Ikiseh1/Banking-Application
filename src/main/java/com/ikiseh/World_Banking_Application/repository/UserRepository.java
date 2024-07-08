@@ -1,6 +1,6 @@
-package com.ikiseh.World.Banking.Application.repository;
+package com.ikiseh.World_Banking_Application.repository;
 
-import com.ikiseh.World.Banking.Application.domain.entity.UserEntity;
+import com.ikiseh.World_Banking_Application.domain.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

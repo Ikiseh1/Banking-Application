@@ -1,7 +1,7 @@
-package com.ikiseh.World.Banking.Application.payload.response;
+package com.ikiseh.World_Banking_Application.payload.response;
 
 
-import com.ikiseh.World.Banking.Application.utils.DateUtils;
+import com.ikiseh.World_Banking_Application.utils.DateUtils;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

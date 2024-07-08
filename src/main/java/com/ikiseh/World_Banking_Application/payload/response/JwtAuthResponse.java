@@ -1,4 +1,4 @@
-package com.ikiseh.World.Banking.Application.payload.response;
+package com.ikiseh.World_Banking_Application.payload.response;
 
 
 import lombok.AllArgsConstructor;

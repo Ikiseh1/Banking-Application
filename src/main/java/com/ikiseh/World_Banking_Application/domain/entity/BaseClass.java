@@ -1,4 +1,4 @@
-package com.ikiseh.World.Banking.Application.domain.entity;
+package com.ikiseh.World_Banking_Application.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

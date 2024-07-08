@@ -1,18 +1,19 @@
-package com.ikiseh.World.Banking.Application.service.impl;
+package com.ikiseh.World_Banking_Application.service.impl;
 
-import com.ikiseh.World.Banking.Application.domain.entity.UserEntity;
-import com.ikiseh.World.Banking.Application.domain.enums.Role;
-import com.ikiseh.World.Banking.Application.payload.request.EmailDetails;
-import com.ikiseh.World.Banking.Application.payload.request.LoginRequest;
-import com.ikiseh.World.Banking.Application.payload.request.UserRequest;
-import com.ikiseh.World.Banking.Application.payload.response.AccountInfo;
-import com.ikiseh.World.Banking.Application.payload.response.ApiResponse;
-import com.ikiseh.World.Banking.Application.payload.response.BankResponse;
-import com.ikiseh.World.Banking.Application.payload.response.JwtAuthResponse;
-import com.ikiseh.World.Banking.Application.repository.UserRepository;
-import com.ikiseh.World.Banking.Application.service.AuthService;
-import com.ikiseh.World.Banking.Application.service.EmailService;
-import com.ikiseh.World.Banking.Application.utils.AccountUtils;
+
+import com.ikiseh.World_Banking_Application.domain.entity.UserEntity;
+import com.ikiseh.World_Banking_Application.domain.enums.Role;
+import com.ikiseh.World_Banking_Application.payload.request.EmailDetails;
+import com.ikiseh.World_Banking_Application.payload.request.LoginRequest;
+import com.ikiseh.World_Banking_Application.payload.request.UserRequest;
+import com.ikiseh.World_Banking_Application.payload.response.AccountInfo;
+import com.ikiseh.World_Banking_Application.payload.response.ApiResponse;
+import com.ikiseh.World_Banking_Application.payload.response.BankResponse;
+import com.ikiseh.World_Banking_Application.payload.response.JwtAuthResponse;
+import com.ikiseh.World_Banking_Application.repository.UserRepository;
+import com.ikiseh.World_Banking_Application.service.AuthService;
+import com.ikiseh.World_Banking_Application.service.EmailService;
+import com.ikiseh.World_Banking_Application.utils.AccountUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,12 +1,13 @@
-package com.ikiseh.World.Banking.Application.infastructure.cotroller;
+package com.ikiseh.World_Banking_Application.infastructure.cotroller;
 
 
-import com.ikiseh.World.Banking.Application.payload.request.LoginRequest;
-import com.ikiseh.World.Banking.Application.payload.request.UserRequest;
-import com.ikiseh.World.Banking.Application.payload.response.ApiResponse;
-import com.ikiseh.World.Banking.Application.payload.response.BankResponse;
-import com.ikiseh.World.Banking.Application.payload.response.JwtAuthResponse;
-import com.ikiseh.World.Banking.Application.service.AuthService;
+
+import com.ikiseh.World_Banking_Application.payload.request.LoginRequest;
+import com.ikiseh.World_Banking_Application.payload.request.UserRequest;
+import com.ikiseh.World_Banking_Application.payload.response.ApiResponse;
+import com.ikiseh.World_Banking_Application.payload.response.BankResponse;
+import com.ikiseh.World_Banking_Application.payload.response.JwtAuthResponse;
+import com.ikiseh.World_Banking_Application.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

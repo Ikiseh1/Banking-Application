@@ -1,4 +1,4 @@
-package com.ikiseh.World.Banking.Application.payload.request;
+package com.ikiseh.World_Banking_Application.payload.request;
 
 
 import lombok.*;

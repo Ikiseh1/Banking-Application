@@ -1,22 +1,22 @@
-package com.ikiseh.World.Banking.Application.service.impl;
+package com.ikiseh.World_Banking_Application.service.impl;
 
 
-import com.ikiseh.World.Banking.Application.domain.entity.UserEntity;
-import com.ikiseh.World.Banking.Application.payload.request.CreditAndDebitRequest;
-import com.ikiseh.World.Banking.Application.payload.request.EmailDetails;
-import com.ikiseh.World.Banking.Application.payload.request.EnquiryRequest;
-import com.ikiseh.World.Banking.Application.payload.response.AccountInfo;
-import com.ikiseh.World.Banking.Application.payload.response.BankResponse;
-import com.ikiseh.World.Banking.Application.repository.UserRepository;
-import com.ikiseh.World.Banking.Application.service.EmailService;
-import com.ikiseh.World.Banking.Application.service.UserService;
-import com.ikiseh.World.Banking.Application.utils.AccountUtils;
+import com.ikiseh.World_Banking_Application.domain.entity.UserEntity;
+import com.ikiseh.World_Banking_Application.payload.request.CreditAndDebitRequest;
+import com.ikiseh.World_Banking_Application.payload.request.EmailDetails;
+import com.ikiseh.World_Banking_Application.payload.request.EnquiryRequest;
+import com.ikiseh.World_Banking_Application.payload.response.AccountInfo;
+import com.ikiseh.World_Banking_Application.payload.response.BankResponse;
+import com.ikiseh.World_Banking_Application.repository.UserRepository;
+import com.ikiseh.World_Banking_Application.service.EmailService;
+import com.ikiseh.World_Banking_Application.service.UserService;
+import com.ikiseh.World_Banking_Application.utils.AccountUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
 
-import static com.ikiseh.World.Banking.Application.utils.AccountUtils.ACCOUNT_NUMBER_NON_EXISTS_MESSAGE;
+import static com.ikiseh.World_Banking_Application.utils.AccountUtils.ACCOUNT_NUMBER_NON_EXISTS_MESSAGE;
 
 //day2
 @Service

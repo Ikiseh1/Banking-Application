@@ -1,10 +1,10 @@
-package com.ikiseh.World.Banking.Application.infastructure.cotroller;
+package com.ikiseh.World_Banking_Application.infastructure.cotroller;
 
 
-import com.ikiseh.World.Banking.Application.payload.request.CreditAndDebitRequest;
-import com.ikiseh.World.Banking.Application.payload.request.EnquiryRequest;
-import com.ikiseh.World.Banking.Application.payload.response.BankResponse;
-import com.ikiseh.World.Banking.Application.service.UserService;
+import com.ikiseh.World_Banking_Application.payload.request.CreditAndDebitRequest;
+import com.ikiseh.World_Banking_Application.payload.request.EnquiryRequest;
+import com.ikiseh.World_Banking_Application.payload.response.BankResponse;
+import com.ikiseh.World_Banking_Application.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

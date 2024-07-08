@@ -1,5 +1,5 @@
-package com.ikiseh.World.Banking.Application.domain.enums;
+package com.ikiseh.World_Banking_Application.domain.enums;
 
 public enum Role {
-    USER
+    USER, ADMIN
 }

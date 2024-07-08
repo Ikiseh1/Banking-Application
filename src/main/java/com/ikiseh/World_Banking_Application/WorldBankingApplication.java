@@ -1,4 +1,4 @@
-package com.ikiseh.World.Banking.Application;
+package com.ikiseh.World_Banking_Application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

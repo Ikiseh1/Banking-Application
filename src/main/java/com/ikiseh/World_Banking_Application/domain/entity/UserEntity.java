@@ -1,8 +1,8 @@
-package com.ikiseh.World.Banking.Application.domain.entity;
+package com.ikiseh.World_Banking_Application.domain.entity;
 
 
-
-import com.ikiseh.World.Banking.Application.domain.enums.Role;
+import com.ikiseh.World_Banking_Application.domain.entity.BaseClass;
+import com.ikiseh.World_Banking_Application.domain.enums.Role;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;
@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserEntity extends BaseClass{
+public class UserEntity extends BaseClass {
     private String firstName;
     private String lastName;
     private String otherName;
@@ -34,4 +34,5 @@ public class UserEntity extends BaseClass{
     private String profilePicture;
     private String status;
     private Role role;
+
 }

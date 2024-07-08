@@ -1,11 +1,12 @@
-package com.ikiseh.World.Banking.Application.service;
+package com.ikiseh.World_Banking_Application.service;
 
 
-import com.ikiseh.World.Banking.Application.payload.request.LoginRequest;
-import com.ikiseh.World.Banking.Application.payload.request.UserRequest;
-import com.ikiseh.World.Banking.Application.payload.response.ApiResponse;
-import com.ikiseh.World.Banking.Application.payload.response.BankResponse;
-import com.ikiseh.World.Banking.Application.payload.response.JwtAuthResponse;
+
+import com.ikiseh.World_Banking_Application.payload.request.LoginRequest;
+import com.ikiseh.World_Banking_Application.payload.request.UserRequest;
+import com.ikiseh.World_Banking_Application.payload.response.ApiResponse;
+import com.ikiseh.World_Banking_Application.payload.response.BankResponse;
+import com.ikiseh.World_Banking_Application.payload.response.JwtAuthResponse;
 import org.springframework.http.ResponseEntity;
 
 //anything that has to do with authentication always put it in your auth service class

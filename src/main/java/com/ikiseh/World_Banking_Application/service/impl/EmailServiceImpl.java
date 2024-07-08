@@ -1,7 +1,8 @@
-package com.ikiseh.World.Banking.Application.service.impl;
+package com.ikiseh.World_Banking_Application.service.impl;
 
-import com.ikiseh.World.Banking.Application.payload.request.EmailDetails;
-import com.ikiseh.World.Banking.Application.service.EmailService;
+
+import com.ikiseh.World_Banking_Application.payload.request.EmailDetails;
+import com.ikiseh.World_Banking_Application.service.EmailService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
