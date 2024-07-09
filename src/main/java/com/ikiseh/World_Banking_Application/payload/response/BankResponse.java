@@ -8,7 +8,7 @@ import lombok.*;
 
 //note this class is to allow you to receive response when you test from backend from front end,
 // it's not needed
-public class BankResponse {
+public class BankResponse<T> {
     private String responseCode;
     private String responseMessage;
     private AccountInfo accountInfo;
@@ -17,6 +17,10 @@ public class BankResponse {
         this.responseCode = responseCode;
         this.responseMessage = responseMessage;
         this.accountInfo = accountInfo;
+    }
+
+    public BankResponse(String message, String fileUrl) {
+        this.responseMessage = message;
     }
 
     public BankResponse(String responseMessage) {

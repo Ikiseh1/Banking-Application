@@ -5,6 +5,7 @@ import com.ikiseh.World_Banking_Application.domain.entity.UserEntity;
 import com.ikiseh.World_Banking_Application.payload.request.CreditAndDebitRequest;
 import com.ikiseh.World_Banking_Application.payload.request.EmailDetails;
 import com.ikiseh.World_Banking_Application.payload.request.EnquiryRequest;
+import com.ikiseh.World_Banking_Application.payload.request.TransferRequest;
 import com.ikiseh.World_Banking_Application.payload.response.AccountInfo;
 import com.ikiseh.World_Banking_Application.payload.response.BankResponse;
 import com.ikiseh.World_Banking_Application.repository.UserRepository;
@@ -159,4 +160,72 @@ public class UserServiceImpl implements UserService {
                         .build())
                 .build();
     }
+
+    @Override
+    public BankResponse transfer(TransferRequest request) {
+        //Edge case to work on, you can send to yourself
+        boolean isDestinationAccountExists
+                = userRepository.existsByAccountNumber(
+                request.getDestinationAccountNumber()
+        );
+
+        if(!isDestinationAccountExists){
+            return BankResponse.builder()
+                    .responseCode("008")
+                    .responseMessage("Account number does not exist")
+                    .build();
+        }
+
+        UserEntity sourceAccountUser = userRepository.findByAccountNumber(request.getDestinationAccountNumber());
+
+        if(request.getAmount().compareTo(sourceAccountUser.getAccountBalance())
+                >0){
+            return BankResponse.builder()
+                    .responseCode("))009")
+                    .responseMessage("INSUFFICIENT BALANCE")
+                    .accountInfo(null)
+                    .build();
+        }
+
+        sourceAccountUser.setAccountBalance(sourceAccountUser.getAccountBalance()
+                        .subtract(request.getAmount())
+        );
+
+        userRepository.save(sourceAccountUser);
+
+        String sourceUsername = sourceAccountUser.getFirstName() + " "+
+                sourceAccountUser.getOtherName()+ " "+
+                sourceAccountUser.getLastName();
+
+        EmailDetails debitAlert = EmailDetails.builder()
+                .subject("DEBIT ALERT")
+                .recipient(sourceAccountUser.getEmail())
+                .messageBody("The Sum of " + request.getAmount()+ " has been deducted from your account. Your current account balance is "
+                + sourceAccountUser.getAccountBalance())
+                .build();
+
+        emailService.sendEmailAlert(debitAlert);
+
+        UserEntity destinationAccountUser=
+                userRepository.findByAccountNumber(request.getDestinationAccountNumber());
+        destinationAccountUser.setAccountBalance(destinationAccountUser.getAccountBalance().add(request.getAmount()));
+
+        userRepository.save(destinationAccountUser);
+
+        EmailDetails creditAlert = EmailDetails.builder()
+                .subject("CREDIT ALERT!")
+                .recipient(destinationAccountUser.getEmail())
+                .messageBody("Yur account has been credited with "+ " "+ request.getAmount()+ " from "+ sourceUsername
+                + " your current account balance is "+ sourceAccountUser.getAccountBalance())
+                .build();
+
+        emailService.sendEmailAlert(creditAlert);
+
+        return BankResponse.builder()
+                .responseCode("200")
+                .responseMessage("Transfer Successful")
+                .accountInfo(null)
+                .build();
+    }
+
 }
